@@ -84,19 +84,16 @@ class _TextField extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(10),
       alignment: Alignment.center,
-      height: 60.0,
+      height: 50.0,
       width: 300,
       decoration: new BoxDecoration(
           color: Colors.white,
-          border: new Border.all(
-          ),
           borderRadius: new BorderRadius.circular(12.0)
       ),
       child: Row(
         children: [
           Flexible(
             child: TextField(
-              con
               cursorColor: Colors.black,
               obscureText: hidden,
               autocorrect: !hidden,
