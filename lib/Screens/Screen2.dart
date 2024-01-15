@@ -53,23 +53,23 @@ class Screen2 extends StatelessWidget {
                     const Text(" Make your project or daily task   ",style: TextStyle(fontWeight: FontWeight.w500,color:Colors.white,fontSize: 18),),
                     const Text(" on track easily and seamlessly",style: TextStyle(fontWeight: FontWeight.w500,color:Colors.white,fontSize: 18,))
                     ,const SizedBox(height: 30),
-                    Padding(
-                      padding: EdgeInsets.only(left: width/30),
-                      child:SlideInLeft(
+                    Align(
+                      alignment: Alignment.center,
+                      child: SlideInLeft(
                           duration: const Duration(milliseconds: 1000),
-                          child: button(text: "  Login ",ontap: (){Get.to(()=>loginSceen());}))
+                          child: button(text: "      Login   ",ontap: (){Get.to(()=>loginSceen());})),
                     ),
                     SizedBox(height: 20,),
-                    Padding(
-                      padding:  EdgeInsets.only(left: width/30),
-                      child:  SlideInRight(
+                    Align(
+                      alignment: Alignment.center,
+                      child: SlideInRight(
                         duration: const Duration(milliseconds: 1000),
                         child: button(
-                            text: "Sign-up",
+                            text: "    Sign-up ",
                             ontap: (){
                               // Get.to(()=>loginSceen());
                             }),
-                      )
+                      ),
                     )
                   ],
                 ),

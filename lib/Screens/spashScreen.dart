@@ -30,13 +30,10 @@ class _SplashscreenState extends State<Splashscreen> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 40),
-                child: SizedBox(
-                    height: height/1.29,
-                    width: width/0.8,
-                    child: FadeInLeft(
-                        duration: const Duration(milliseconds: 1250),
-                        child: Image.asset("aseets/images/Saly-16.png"))
-                ),
+                child: FadeInLeft(
+                    duration: const Duration(milliseconds: 1250),
+                    child: Image.asset("aseets/images/Saly-16.png",height: height/1.41,
+                      width: width/1.0,)),
               ),
             ],
           ),

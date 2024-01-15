@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:task_app/Screens/spashScreen.dart';
+import 'package:task_app/Boss/BossHome.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      
       debugShowCheckedModeBanner: false,
       title: 'Task - App',
       theme: ThemeData(
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
           Theme.of(context).textTheme,
         )
       ),
-      home: Splashscreen(),
+      home:HomeScreen(),
     );
   }
 }
