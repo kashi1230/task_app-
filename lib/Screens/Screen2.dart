@@ -1,6 +1,9 @@
 
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:task_app/authsceen/loginScreen.dart';
+import 'package:task_app/const/common_widget/widgets.dart';
 
 class Screen2 extends StatelessWidget {
   var size ,height,width;
@@ -12,6 +15,7 @@ class Screen2 extends StatelessWidget {
     height = size.height;
     width = size.width;
     return Scaffold(
+      extendBody: true,
       backgroundColor:Colors.white,
       body:Stack(
         children: [
@@ -19,7 +23,9 @@ class Screen2 extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 30),
-              child: Image.asset("aseets/images/Saly-31.png",height: height/2),
+              child: BounceInDown(
+                  duration: const Duration(milliseconds: 1200),
+                  child: Image.asset("aseets/images/Saly-31.png",height: height/2)),
             )
           ],
         ),
@@ -44,40 +50,26 @@ class Screen2 extends StatelessWidget {
                     const Text("Get your Daily ",style: TextStyle(color: Colors.white,fontSize: 30,fontWeight: FontWeight.bold,letterSpacing: 1,wordSpacing: 1)),
                     const Text("Task Easily On Time",style: TextStyle(color: Colors.white,fontSize: 30,fontWeight: FontWeight.bold,letterSpacing: 1,wordSpacing: 1),),
                     const SizedBox(height: 15),
-                    const Text(" Make your project or daily task   ",style: TextStyle(fontWeight: FontWeight.bold,color:Colors.white,fontSize: 18),),
-                    const Text(" on track easily and seamlessly",style: TextStyle(fontWeight: FontWeight.w700,color:Colors.white,fontSize: 18,))
+                    const Text(" Make your project or daily task   ",style: TextStyle(fontWeight: FontWeight.w500,color:Colors.white,fontSize: 18),),
+                    const Text(" on track easily and seamlessly",style: TextStyle(fontWeight: FontWeight.w500,color:Colors.white,fontSize: 18,))
                     ,const SizedBox(height: 30),
                     Padding(
-                      padding: const EdgeInsets.only(left: 18),
-                      child: Material(
-                        borderRadius: BorderRadius.circular(10),
-                        child: InkWell(
-                          onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=>loginSceen()));
-                          },
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 140,vertical: 11),
-                            child: const Text("Login",style: TextStyle(fontSize: 20,letterSpacing: 1,fontWeight: FontWeight.bold,color: Colors.black),),
-                          ),
-                        ),
-                      ),
+                      padding: EdgeInsets.only(left: width/30),
+                      child:SlideInLeft(
+                          duration: const Duration(milliseconds: 1000),
+                          child: button(text: "  Login ",ontap: (){Get.to(()=>loginSceen());}))
                     ),
                     SizedBox(height: 20,),
-
                     Padding(
-                      padding: const EdgeInsets.only(left: 18),
-                      child: Material(
-                        borderRadius: BorderRadius.circular(10),
-                        child: InkWell(
-                          onTap: (){
-                            // Navigator.push(context, MaterialPageRoute(builder: (context)=>Screen2()));
-                          },
-                          child: Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 125,vertical: 11),
-                            child: const Text("Sign-Up",style: TextStyle(fontSize: 20,letterSpacing: 1,fontWeight: FontWeight.bold,color: Colors.black),),
-                          ),
-                        ),
-                      ),
+                      padding:  EdgeInsets.only(left: width/30),
+                      child:  SlideInRight(
+                        duration: const Duration(milliseconds: 1000),
+                        child: button(
+                            text: "Sign-up",
+                            ontap: (){
+                              // Get.to(()=>loginSceen());
+                            }),
+                      )
                     )
                   ],
                 ),
