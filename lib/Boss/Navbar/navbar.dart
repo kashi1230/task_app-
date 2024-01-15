@@ -55,8 +55,7 @@ class _TabbarMaterialwidgetState extends State<TabbarMaterialwidget> {
     );
   }
 
-  Widget buildIem({required Icon icon,
-        required int index})
+  Widget buildIem({required Icon icon, required int index,onpress})
   {
     final isSelected = index ==widget.index;
     return IconTheme(
