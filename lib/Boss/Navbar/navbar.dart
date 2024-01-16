@@ -1,72 +1,64 @@
-
 import 'package:flutter/material.dart';
+import 'package:task_app/Boss/Activites.dart';
+import 'package:task_app/Boss/Projects.dart';
+import 'package:task_app/Boss/addprojects.dart';
+import 'package:task_app/Boss/mainscreen.dart';
+import 'package:task_app/Boss/wellscreen.dart';
 
-class TabbarMaterialwidget extends StatefulWidget {
-  final int index ;
+class BottomNavigationExample extends StatefulWidget {
+  const BottomNavigationExample({Key? key}) : super(key: key);
 
-  final ValueChanged<int>onChangedTab;
-
- const  TabbarMaterialwidget({
-     super.key,
-     required this.index,
-   required this.onChangedTab,
-   });
   @override
-  State<TabbarMaterialwidget> createState() => _TabbarMaterialwidgetState();
+  _BottomNavigationExampleState createState() =>
+      _BottomNavigationExampleState();
 }
 
-class _TabbarMaterialwidgetState extends State<TabbarMaterialwidget> {
-  @override
-  Widget build(BuildContext context) {
-    final Placeholder = Opacity(
-      opacity: 0,
-      child: IconButton(
-          onPressed: (){}, icon: Icon(Icons.no_cell)
-      ),
-    );
-    return BottomAppBar(
-      shape: CircularNotchedRectangle(),
-      notchMargin: 8,
-      elevation: 10,
-      color: Colors.white,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          buildIem(
-              icon: Icon(Icons.home),
-              index: 0
-          ),
-          buildIem(
-              icon: Icon(Icons.file_open),
-              index: 1
-          ),
-          Placeholder,
-          buildIem(
-              icon: Icon(Icons.bar_chart),
-              index: 2
-          ),
-          buildIem(
-              icon: Icon(Icons.notification_add_outlined),
-              index: 3
-          )
-        ],
-      ),
+class _BottomNavigationExampleState extends State {
+  int _selectedTab = 0;
+  int buildindex =0;
 
-    );
+  List _pages = <Widget>[
+    const MainScreen(),
+    const Projects(),
+    // AddProjects(),
+    const Activites(),
+    const WellScreen()
+  ];
+
+
+  _changeTab(int index) {
+    setState(() {
+      _selectedTab = index;
+    });
   }
 
-  Widget buildIem({required Icon icon, required int index,onpress})
-  {
-    final isSelected = index ==widget.index;
-    return IconTheme(
-      data: IconThemeData(
-        color: isSelected?Colors.deepPurple:Colors.black
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      appBar: AppBar(),
+      body: _pages[_selectedTab],
+      bottomNavigationBar: BottomNavigationBar(
+        elevation: 1,
+        currentIndex: _selectedTab,
+        onTap: (index) => _changeTab(index),
+        selectedItemColor: Colors.deepPurple,
+        unselectedItemColor: Colors.black,
+        items: [
+          const BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          const BottomNavigationBarItem(icon: Icon(Icons.file_copy_sharp), label: "About"),
+          const BottomNavigationBarItem(
+              icon: Icon(Icons.bar_chart), label: "Activity"),
+          const BottomNavigationBarItem(
+              icon: Icon(Icons.notification_add_outlined), label: "Notification"),
+        ],
       ),
-      child: IconButton
-        (
-          onPressed:() => widget.onChangedTab(index),
-          icon: icon
-      ),
+    );
+  }
+  Widget buildIcon({required Icon icon,required int index}){
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: icon,
     );
   }
 }

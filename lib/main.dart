@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:task_app/Boss/BossHome.dart';
-import 'package:task_app/Boss/Navbar/bottomtabbar/bottomtabbar.dart';
+import 'package:task_app/Boss/Navbar/navbar.dart';
+import 'package:task_app/Boss/mainscreen.dart';
 import 'package:task_app/Screens/spashScreen.dart';
 
 void main() {
@@ -16,7 +16,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      
       debugShowCheckedModeBanner: false,
       title: 'Task - App',
       theme: ThemeData(
@@ -24,7 +23,7 @@ class MyApp extends StatelessWidget {
           Theme.of(context).textTheme,
         )
       ),
-      home:const BottomTab(),
+      home: BottomNavigationExample(),
     );
   }
 }

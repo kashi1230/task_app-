@@ -2,8 +2,9 @@
 class Assets {
   Assets._();
 
-  static const String generatedAssets = 'lib/generated/assets.dart';
-  static const String libMain = 'lib/main.dart';
-  static const String screensSpashScreen = 'lib/Screens/spashScreen.dart';
+  static const String imagesPngwing = 'aseets/images/pngwing.png';
+  static const String imagesSaly10 = 'aseets/images/Saly-10.png';
+  static const String imagesSaly16 = 'aseets/images/Saly-16.png';
+  static const String imagesSaly31 = 'aseets/images/Saly-31.png';
 
 }

@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:task_app/const/common_widget/widgets.dart';
 
-import '../Boss/BossHome.dart';
 
 
 class loginapi extends GetxController{
