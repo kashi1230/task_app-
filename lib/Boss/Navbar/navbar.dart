@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 class TabbarMaterialwidget extends StatefulWidget {
   final int index ;
 
-  final ValueChanged<int>onchangedTab;
+  final ValueChanged<int>onChangedTab;
 
  const  TabbarMaterialwidget({
      super.key,
      required this.index,
-   required this.onchangedTab,
+   required this.onChangedTab,
    });
   @override
   State<TabbarMaterialwidget> createState() => _TabbarMaterialwidgetState();
@@ -64,7 +64,7 @@ class _TabbarMaterialwidgetState extends State<TabbarMaterialwidget> {
       ),
       child: IconButton
         (
-          onPressed:() =>widget.onchangedTab(index),
+          onPressed:() => widget.onChangedTab(index),
           icon: icon
       ),
     );
