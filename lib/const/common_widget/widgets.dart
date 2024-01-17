@@ -38,6 +38,17 @@ Future showMessage({String? title,String? content}){
       });;
 }
 
+Widget chip (String text , int color){
+  return  Container(
+      width: 50,
+      height: 20,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: Color(color)),
+      child: Center(child: Text(text)),
+  );
+}
+
 //Textfield
 Widget Textfield({required String text, required IconData icon1, TextEditingController? controller ,required bool oscure,onpress2}){
 
@@ -63,5 +74,6 @@ Widget Textfield({required String text, required IconData icon1, TextEditingCont
     )
     ),
   );
+
 
 }

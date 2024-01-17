@@ -41,6 +41,7 @@ dependencies:
   animated_text_kit: ^4.2.2
   animate_do: ^3.1.2
   awesome_bottom_bar: ^1.2.4
+  easy_search_bar: ^2.5.0
 
 dev_dependencies:
   flutter_test:

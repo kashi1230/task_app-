@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:task_app/Boss/Navbar/navbar.dart';
-import 'package:task_app/Boss/mainscreen.dart';
-import 'package:task_app/Screens/spashScreen.dart';
+import 'Employee/Navbar/navbar.dart';
 
 void main() {
   runApp(const MyApp());

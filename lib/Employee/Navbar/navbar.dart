@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:task_app/Boss/Activites.dart';
-import 'package:task_app/Boss/Projects.dart';
-import 'package:task_app/Boss/addprojects.dart';
-import 'package:task_app/Boss/mainscreen.dart';
-import 'package:task_app/Boss/wellscreen.dart';
+import 'package:task_app/Employee/Activites.dart';
+import 'package:task_app/Employee/Projects.dart';
+import 'package:task_app/Employee/mainscreen.dart';
+import 'package:task_app/Employee/wellscreen.dart';
 
 class BottomNavigationExample extends StatefulWidget {
   const BottomNavigationExample({Key? key}) : super(key: key);
@@ -17,8 +16,8 @@ class _BottomNavigationExampleState extends State {
   int _selectedTab = 0;
   int buildindex =0;
 
-  List _pages = <Widget>[
-    const MainScreen(),
+  final List _pages = <Widget>[
+    MainScreen(),
     const Projects(),
     // AddProjects(),
     const Activites(),
@@ -36,7 +35,6 @@ class _BottomNavigationExampleState extends State {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      appBar: AppBar(),
       body: _pages[_selectedTab],
       bottomNavigationBar: BottomNavigationBar(
         elevation: 1,
