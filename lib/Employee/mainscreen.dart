@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_app/const/common_widget/widgets.dart';
 import 'package:task_app/const/contoller/cmnController.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class MainScreen extends StatelessWidget {
   var size,height,width;
@@ -20,8 +21,7 @@ class MainScreen extends StatelessWidget {
     size = MediaQuery.of(context).size;
     height = size.height;
     width = size.width;
-    return Scaffold(
-      body: Padding(
+    return Padding(
         padding: const EdgeInsets.only(top: 55),
         child: Column(
           children: [
@@ -45,7 +45,7 @@ class MainScreen extends StatelessWidget {
                     backgroundColor: Colors.deepPurple,
                     child: CircleAvatar(
                       radius: 24, // This radius is the radius of the picture in the circle avatar itself.
-                      child: Image.asset("aseets/images/pngwing.png"),
+                      child: Image.asset("aseets/images/pngwing.png",fit: BoxFit.fill,),
                     ),
                   ),
                 ),
@@ -99,51 +99,116 @@ class MainScreen extends StatelessWidget {
                   topRight: Radius.circular(20)
               ),
             ),
-            child: Padding(
-              padding: const EdgeInsets.all(5),
-              child: ListView.builder(
-                itemCount: 5,
-                  itemBuilder:(context , index){
-                    return Padding(
-                      padding: const EdgeInsets.all(7),
-                      child: Container(
-                          width: height/2,
-                          height: width/3.2,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(22),
-                              color: Colors.white),
-                        child:Align(
-                          alignment: Alignment.topLeft,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    chip("High", 0xaffaa4a4),
-                                SizedBox(width: 10,),
-                                chip("Design", 0xffd9d9d9),],
-                                ),
-                                Row(
-                                  children: [
-                                    chip("High", 0xaffaa4a4),
-                                    SizedBox(width: 10,),
-                                    chip("Design", 0xffd9d9d9),],
-                                ),
-                              ],
-                            )
-                          ),
-                        )
-                      ),
-                    );
-                  }),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+               Row(
+                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                 children: [
+                   Row(
+                     children: [
+                       "All  Task".text.color(Colors.white).size(18).make()
+                       ]
+                   ),
+                   Row(
+                     children: [
+                       Icon(Icons.watch_later_outlined,color: Colors.white,),
+                       " 2d".text.color(Colors.white).size(16).make()
+                       ]
+                   ),
+                 ],
+               ).box.padding(EdgeInsets.only(top: 12,left: 12,right: 12,bottom: 4)).make(),
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: 5,
+                      itemBuilder:(context , index){
+                        return Container(
+                            height: width/2.7,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(22),
+                                color: Colors.white),
+                          child:Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      chip("High", 0xaffaa4a4),
+                                  SizedBox(width: 10,),
+                                  chip("Design", 0xffd9d9d9),],
+                                  ),
+                                  Row(
+                                    children: [
+                                      Icon(Icons.watch_later_outlined,),
+                                      " 2d".text.size(16).make()
+                                      ]
+                                  ),
+                                ],
+                              ).box.padding(EdgeInsets.only(top: 12,left: 10,right: 10)).make(),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 2,left: 12),
+                                child: "market surgeon landing page ".text.fontWeight(FontWeight.w300).size(22).make(),
+                              ),
+                              Row(
+                                children: [
+                                  "Assigned By - jhon".text.fontWeight(FontWeight.w500).size(2).make(),
+                                  "    submit date - 16/dec/2023".text.fontWeight(FontWeight.w500).size(3).make(),
+                                ],
+                              ).box.padding(EdgeInsets.only(left: 18)).make(),
+                              Row(
+                                children: [
+                                  Obx(() => Container(
+                                    child: Slider(
+                                      onChanged: (s) {
+                                        cmnctrl.oncahngeValue.value = s;
+                                      },
+                                      value: cmnctrl.oncahngeValue.value,
+                                      max: 100,min: 0,
+                                      label: "Slide",
+                                      activeColor: Colors.deepPurple,
+                                    ),
+                                    height: 30,
+                                    width: 330,
+                                  ),),
+                                Obx(() =>  "${cmnctrl.oncahngeValue.value.toStringAsFixed(0)}%".text.make()),
+                                ],
+                              ).box.padding(EdgeInsets.only(top: 6)).make(),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Row(
+                                    children: [
+                                      CircleAvatar(
+                                        child: Image.asset("aseets/images/pngwing.png"),
+                                        radius: 10,
+                                      ),
+                                      CircleAvatar(
+                                        child: Image.asset("aseets/images/pngwing.png"),
+                                        radius: 10,
+                                      ),
+                                      CircleAvatar(
+                                        child: Image.asset("aseets/images/pngwing.png"),
+                                        radius: 10,
+                                      ),
+                                    ],
+                                  ),
+                                  "View More".text.color(Colors.deepPurpleAccent).make().box.padding(EdgeInsets.only(right: 10)).make(),
+                                ],
+                              ).box.padding(EdgeInsets.only(left: 15)).make()
+                            ],
+                          )
+                        ).box.padding(EdgeInsets.only(left: 15,right: 15,bottom: 20)).make();
+                      }),
+                ),
+              ],
             )
           ),
         )
           ],
         ),
-      ),
     );
   }
 }
