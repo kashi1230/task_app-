@@ -117,14 +117,20 @@ class MainScreen extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                chip("High", 0xaffaa4a4),
+                                Row(
+                                  children: [
+                                    chip("High", 0xaffaa4a4),
                                 SizedBox(width: 10,),
-                                chip("Design", 0xffd9d9d9),
-                                Container(
-                                  child: ;,
-                                )
-
+                                chip("Design", 0xffd9d9d9),],
+                                ),
+                                Row(
+                                  children: [
+                                    chip("High", 0xaffaa4a4),
+                                    SizedBox(width: 10,),
+                                    chip("Design", 0xffd9d9d9),],
+                                ),
                               ],
                             )
                           ),
